@@ -1,0 +1,39 @@
+name: RateLimit
+
+secrets:
+  user1:
+    kind: local
+    key: $$passkey
+    data: <enter-encrypted-id-and-token-data>
+    type: equal
+  # user2:
+  #   kind: local
+  #   key: $$passkey
+  #   data: <enter-encrypted-id-and-token-data>
+  #   type: equal
+global:
+    base_url: https://api.github.com/
+    headers:
+        accept: application/vnd.github+json
+        X-GitHub-Api-Version: "2022-11-28"
+apis:
+    - name: GitHub
+      event_type: ghRateLimit
+      url: rate_limit
+      headers:
+          Authorization: Bearer ${secret.user1:token}
+      timestamp_conversion:
+        "reset": DATE::W3C
+      convert_space: "_"
+      custom_attributes:
+        gh-user: ${secret.user1:id}
+    # - name: GitHub
+    #   event_type: ghRateLimit
+    #   url: rate_limit
+    #   headers:
+    #       Authorization: Bearer ${secret.user2:token}
+    #   timestamp_conversion:
+    #     "reset": DATE::W3C
+    #   convert_space: "_"
+    #   custom_attributes:
+    #     gh-user: ${secret.user2:id}

@@ -1,0 +1,29 @@
+name: nri-flex-rss
+lookup_file: rss-vars.json
+apis:
+  - name: RSS Feed
+    event_type: rss-feed
+    commands:
+      - run: curl -s ${lf:host} | xmllint --format -
+    keep_keys:
+      - ^title
+      - ^link
+      - ^pubDate
+      - ^source$
+      - ^feed$
+      - timeDiff
+      - ^timestamp$
+    custom_attributes:
+      source: ${lf:source}
+      feed: ${lf:feed}
+    rename_keys:
+      pubDate: timestamp
+    timestamp_conversion:
+      pubDate: TIMESTAMP::${lf:tFormat}
+    save_output: "${lf:id}results.json"
+    ignore_output: true
+  - name: filter feed
+    event_type: rss-feed
+    commands:
+      - run: cat results.json | jq --rawfile prevval ${lf:id}maxval '[.[] | select(.timestamp | tonumber > ($prevval // 1 | tonumber))]'
+      - run: jq 'map(.timestamp | tonumber) | max' results.json > ${lf:id}maxval
