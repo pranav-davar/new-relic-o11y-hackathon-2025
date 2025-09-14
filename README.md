@@ -33,14 +33,15 @@ Please navigate to the project folder and follow its specific README.md.
 
 **Example:**
 ```bash
-cd Rate Limit Monitoring
+cd 01-rate-limit-monitoring
 # Follow instructions in 01-rate-limit-monitoring/README.md
 ```
 
 ```bash
-cd RSS2Relic
+cd 02-rss2relic
 # Follow instructions in 02-rss2relic/README.md
 ```
+
 ## 📁 Project Folder Structure
 
 ```
