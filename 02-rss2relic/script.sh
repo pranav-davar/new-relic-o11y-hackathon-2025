@@ -7,8 +7,8 @@ if [ -z "$1" ]; then
 fi
 
 JSON_FILE="$1"
-RESET_MODE="$2"  # Will be "reset" if provided
-SEND_TO_NR="$3"
+ARG2="$2"  # Will be "reset" if provided
+ARG3="$3"
 
 for arg in "$ARG2" "$ARG3"; do
     if [ "$arg" == "reset" ]; then
