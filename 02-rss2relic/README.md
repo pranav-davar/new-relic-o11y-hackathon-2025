@@ -100,7 +100,7 @@ Validate the output, see if the output data is populated properly i.e. output co
 5. Login to New Relic account. Go to data explorer. Execute the below nrql to visualise the data.
 
 ```sql
-FROM rss-feed SELECT * since 1 days ago
+FROM rssfeed SELECT * since 1 days ago
 ```
 
 The output will look like
