@@ -13,7 +13,7 @@ ARG3="$3"
 for arg in "$ARG2" "$ARG3"; do
     if [ "$arg" == "reset" ]; then
         RESET_MODE="reset"
-    elif [ "$arg" == "send" ]; then
+    elif [ "$arg" == "sendData" ]; then
         SEND_TO_NR="sendData"
     fi
 done

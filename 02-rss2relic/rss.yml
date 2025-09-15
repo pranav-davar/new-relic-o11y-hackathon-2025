@@ -25,5 +25,5 @@ apis:
   - name: filter feed
     event_type: rss-feed
     commands:
-      - run: cat results.json | jq --rawfile prevval ${lf:id}maxval '[.[] | select(.timestamp | tonumber > ($prevval // 1 | tonumber))]'
-      - run: jq 'map(.timestamp | tonumber) | max' results.json > ${lf:id}maxval
+      - run: cat ${lf:id}results.json | jq --rawfile prevval ${lf:id}maxval '[.[] | select(.timestamp | tonumber > ($prevval // 1 | tonumber))]'
+      - run: jq 'map(.timestamp | tonumber) | max' ${lf:id}results.json > ${lf:id}maxval
