@@ -82,6 +82,7 @@ For more details on time format visit: [link](https://go.dev/src/time/format.go)
 # json_file = rss-vars.json
 # reset : if you want to reset it to include all data from rss feed not after the last run publish date time
 # sendData : sending data to new relic. Use with reset, if you are running for the first time to send to new relic
+chmod +x script.sh
 ./script.sh rss-vars.json
 ```
 Validate the output, see if the output data is populated properly i.e. output contains title, link of from the available rss feeds.
