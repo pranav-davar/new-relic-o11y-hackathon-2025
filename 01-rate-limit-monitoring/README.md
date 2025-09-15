@@ -98,6 +98,7 @@ Validate the output, see if the output data is populated properly i.e. output co
 6. Update passkey, new-relic ingest key, and account id. Run the script by running the below command.
 
 ```sh
+chmod +x script.sh
 ./script.sh
 ```
 
